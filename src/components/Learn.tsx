@@ -9,24 +9,28 @@ const Learn = () => {
       title: "Brand History Timelines",
       description: "Interactive journeys through the heritage of iconic luxury houses.",
       color: "bg-blue-500/10",
+      image: "https://images.unsplash.com/photo-1493612276216-ee3925520721?w=800&h=600&fit=crop",
     },
     {
       icon: Video,
       title: "Craftsmanship Videos",
       description: "Short films showcasing artisanal techniques and creative processes.",
       color: "bg-purple-500/10",
+      image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&h=600&fit=crop",
     },
     {
       icon: Wrench,
       title: "Repair Tutorials",
       description: "Learn to care for and restore luxury items, promoting sustainability.",
       color: "bg-green-500/10",
+      image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop",
     },
     {
       icon: Leaf,
       title: "Sustainability Education",
       description: "Understanding ethical practices and the future of responsible luxury.",
       color: "bg-amber-500/10",
+      image: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=800&h=600&fit=crop",
     },
   ];
 
@@ -47,16 +51,22 @@ const Learn = () => {
           {resources.map((resource, index) => (
             <Card
               key={index}
-              className="p-8 hover:shadow-luxury transition-smooth group cursor-pointer bg-card"
+              className="overflow-hidden hover:shadow-luxury transition-smooth group cursor-pointer bg-card"
             >
-              <div className={`w-16 h-16 mb-6 rounded-xl ${resource.color} flex items-center justify-center group-hover:scale-110 transition-smooth`}>
-                <resource.icon className="w-8 h-8 text-primary" />
+              <div className="h-48 overflow-hidden relative">
+                <img
+                  src={resource.image}
+                  alt={resource.title}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-smooth"
+                />
               </div>
-              <h3 className="text-2xl font-serif font-semibold mb-3">{resource.title}</h3>
-              <p className="text-muted-foreground mb-4">{resource.description}</p>
-              <Button variant="ghost" className="group-hover:translate-x-2 transition-smooth">
-                Explore →
-              </Button>
+              <div className="p-8">
+                <h3 className="text-2xl font-serif font-semibold mb-3">{resource.title}</h3>
+                <p className="text-muted-foreground mb-4">{resource.description}</p>
+                <Button variant="ghost" className="group-hover:translate-x-2 transition-smooth">
+                  Explore →
+                </Button>
+              </div>
             </Card>
           ))}
         </div>
